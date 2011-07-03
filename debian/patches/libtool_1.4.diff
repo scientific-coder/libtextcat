@@ -1,0 +1,20 @@
+--- libtextcat-2.2/configure-old	2010-04-30 00:13:47.000000000 +0200
++++ libtextcat-2.2/configure	2010-04-30 00:15:56.000000000 +0200
+@@ -3451,7 +3451,7 @@
+   ;;
+ 
+ # This must be Linux ELF.
+-linux-gnu*)
++linux-gnu*|k*bsd*-gnu*)
+   case $host_cpu in
+   alpha* | hppa* | i*86 | mips | mipsel | powerpc* | sparc* | ia64*)
+     lt_cv_deplibs_check_method=pass_all ;;
+@@ -6364,7 +6364,7 @@
+   ;;
+ 
+ # This must be Linux ELF.
+-linux-gnu*)
++linux-gnu*|k*bsd*-gnu*)
+   version_type=linux
+   need_lib_prefix=no
+   need_version=no

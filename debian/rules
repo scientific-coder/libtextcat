@@ -1,0 +1,75 @@
+#!/usr/bin/make -f
+  
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+# "stolen" from http://cvs.fedoraproject.org/viewvc/rpms/libtextcat/devel/libtextcat.spec?revision=1.5&view=markup
+install/libtextcat-data::
+	mkdir -p $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM
+	set -e; \
+	cd langclass/LM && \
+	cp -p amharic-utf.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/amharic_utf.lm; \
+	cp -p yiddish-utf.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/yiddish_utf.lm; \
+	cp -p afrikaans.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/afrikaans.lm; \
+	cp -p basque.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/basque.lm; \
+	cp -p bosnian.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/bosnian.lm; \
+	cp -p croatian-ascii.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/croatian.lm; \
+	cp -p dutch.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/dutch.lm; \
+	cp -p english.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/english.lm; \
+	cp -p icelandic.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/icelandic.lm; \
+	cp -p indonesian.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/indonesian.lm; \
+	cp -p latin.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/latin.lm; \
+	cp -p malay.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/malay.lm; \
+	cp -p manx.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/manx_gaelic.lm; \
+	cp -p marathi.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/marathi.lm; \
+	cp -p nepali.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/nepali.lm; \
+	cp -p romanian.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/romanian.lm; \
+	cp -p sanskrit.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/sanskrit.lm; \
+	cp -p scots.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/scots.lm; \
+	cp -p serbian-ascii.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/serbian_ascii.lm; \
+	cp -p slovak-ascii.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/slovak_ascii.lm; \
+	cp -p swahili.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/swahili.lm; \
+	cp -p tagalog.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/tagalog.lm; \
+	cp -p welsh.lm $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/welsh.lm; \
+	iconv -f WINDOWS-1256 -t UTF-8 arabic-windows1256.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/arabic.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 albanian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/albanian.lm; \
+	iconv -f WINDOWS-1251 -t UTF-8 belarus-windows1251.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/belarus.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 breton.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/breton.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 catalan.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/catalan.lm; \
+	iconv -f ISO-8859-2 -t UTF-8 czech-iso8859_2.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/czech.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 danish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/danish.lm; \
+	iconv -f ISO-8859-3 -t UTF-8 esperanto.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/esperanto.lm; \
+	iconv -f ISO-8859-15 -t UTF-8 estonian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/estonian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 finnish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/finnish.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 french.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/french.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 frisian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/frisian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 georgian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/georgian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 german.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/german.lm; \
+	iconv -f ISO-8859-7 -t UTF-8 greek-iso8859-7.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/greek.lm; \
+	iconv -f ISO-8859-8 -t UTF-8 hebrew-iso8859_8.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/hebrew.lm; \
+	iconv -f ISO-8859-2 -t UTF-8 hungarian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/hungarian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 irish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/irish_gaelic.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 italian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/italian.lm; \
+	iconv -f ISO-8859-13 -t UTF-8 latvian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/latvian.lm; \
+	iconv -f ISO-8859-13 -t UTF-8 lithuanian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/lithuanian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 malay.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/malay.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 middle_frisian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/middle_frisian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 mingo.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/mingo.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 norwegian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/norwegian.lm; \
+	iconv -f ISO-8859-2 -t UTF-8 polish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/polish.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 portuguese.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/portuguese.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 quechua.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/quechua.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 rumantsch.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/romansh.lm; \
+	iconv -f ISO-8859-5 -t UTF-8 russian-iso8859_5.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/russian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 scots_gaelic.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/scots_gaelic.lm; \
+	iconv -f ISO-8859-2 -t UTF-8 slovenian-iso8859_2.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/slovenian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 spanish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/spanish.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 swedish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/swedish.lm; \
+	iconv -f ISO-8859-9 -t UTF-8 turkish.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/turkish.lm; \
+	iconv -f KOI8-R -t UTF-8 ukrainian-koi8_r.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/ukrainian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 hindi.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/hindi.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 persian.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/persian.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 korean.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/korean.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 tamil.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/tamil.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 thai.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/thai.lm; \
+	iconv -f ISO-8859-1 -t UTF-8 vietnamese.lm > $(CURDIR)/debian/libtextcat-data/usr/share/libtextcat/LM/vietnamese.lm

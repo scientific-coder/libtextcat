@@ -1,0 +1,8 @@
+debian/tmp/usr/lib/libtextcat.a
+debian/tmp/usr/lib/libtextcat.so
+src/textcat.h usr/include/libtextcat
+src/common.h usr/include/libtextcat
+src/constants.h usr/include/libtextcat
+src/fingerprint.h usr/include/libtextcat
+src/utf8misc.h usr/include/libtextcat
+

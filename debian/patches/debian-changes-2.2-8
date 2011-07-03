@@ -1,0 +1,43 @@
+Description: Upstream changes introduced in version 2.2-8
+ This patch has been created by dpkg-source during the package build.
+ Here's the last changelog entry, hopefully it gives details on why
+ those changes were made:
+ .
+ libtextcat (2.2-8) unstable; urgency=low
+ .
+   * add OOo patch making libtextcat0 utf8-awar for use with OOo/LibO,
+     update symbol file
+   * stop building -utf8, make -data C/P/R it. This also closes: #607390.
+   * switch to "3.0 (quilt)"
+   * install header to /usr/include/libtextcat, where LibreOffice expects
+     it
+   *
+ .
+ The person named in the Author field signed this changelog entry.
+Author: Rene Engelhard <rene@debian.org>
+Bug-Debian: http://bugs.debian.org/607390
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- libtextcat-2.2.orig/src/fingerprint.c
++++ libtextcat-2.2/src/fingerprint.c
+@@ -280,7 +280,7 @@ static int heapinsert( table_t *t, entry
+ }
+ 
+ 
+-extern int heapextract( table_t *t, entry_t *item )
++static int heapextract( table_t *t, entry_t *item )
+ {
+ 	entry_t *p;
+ 

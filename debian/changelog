@@ -1,0 +1,106 @@
+libtextcat (2.2-9) unstable; urgency=low
+
+  * add missing fpdb.conf 
+
+ -- Rene Engelhard <rene@debian.org>  Tue, 22 Mar 2011 17:08:20 +0000
+
+libtextcat (2.2-8) unstable; urgency=low
+
+  * add OOo patch making libtextcat0 utf8-awar for use with OOo/LibO,
+    update symbol file 
+  * stop building -utf8, make -data C/P/R it. This also closes: #607390.
+  * switch to "3.0 (quilt)" 
+  * install header to /usr/include/libtextcat, where LibreOffice expects
+    it 
+  * 
+ -- Rene Engelhard <rene@debian.org>  Tue, 22 Mar 2011 12:20:42 +0000
+
+libtextcat (2.2-7) unstable; urgency=low
+
+  * upload to unstable 
+
+ -- Rene Engelhard <rene@debian.org>  Fri, 04 Feb 2011 00:15:32 +0100
+
+libtextcat (2.2-6) experimental; urgency=low
+
+  * merge 2.2-5ubuntu1 and 2.2-5ubuntu2
+  * change Maintainer: to mysqlf , remove Daniele and Gouvain, never did
+    anything except the initial Ubuntu upload (and the mail adress here
+    isn't valid anymore) (closes: #609691)
+  * add Homepage: in control (closes: #599271) 
+  * fix catalan.txt, thanks Siegfried-Angel Gevatter Pujals 
+    (closes: #593896) 
+
+ -- Rene Engelhard <rene@debian.org>  Thu, 27 Jan 2011 20:52:24 +0100
+
+libtextcat (2.2-5ubuntu2) natty; urgency=low
+
+  * Add symbols file.
+  * src/fingerprint.c (heapextract, issame): Make functions static.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 20 Jan 2011 10:17:02 +0100
+
+libtextcat (2.2-5ubuntu1) natty; urgency=low
+
+  * Don't ignore iconv errors during the build.
+  * Update download location.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 20 Jan 2011 08:30:10 +0100
+
+libtextcat (2.2-5) unstable; urgency=medium
+
+  * make libtextcat-data-utf8 conflict libtextcat-data, not
+    libtextcat-data-utf8 (closes: #607517) 
+
+ -- Rene Engelhard <rene@debian.org>  Tue, 21 Dec 2010 22:59:46 +0100
+
+libtextcat (2.2-4) unstable; urgency=low
+
+  * add patch for our ancient libtool 1.4 for kFreeBSD (see #578023)
+  * override libtextcat source: ancient-libtool ltmain.sh 1.4.3 as
+    per lintians own suggestion :) 
+
+ -- Rene Engelhard <rene@debian.org>  Fri, 30 Apr 2010 00:21:21 +0200
+
+libtextcat (2.2-3) unstable; urgency=low
+
+  * package fingerprints converted to UTF-8 (where this is possible) 
+  * add ${misc:Depends}, explicit debian/source/format
+  * explicitly build-depend on autotools-dev to make clear we update
+    config.* 
+
+ -- Rene Engelhard <rene@debian.org>  Mon, 26 Apr 2010 03:55:41 +0200
+
+libtextcat (2.2-2) unstable; urgency=low
+
+  * createfp probably should be in "utils".. 
+
+ -- Rene Engelhard <rene@debian.org>  Thu, 23 Aug 2007 11:59:38 +0200
+
+libtextcat (2.2-1) unstable; urgency=low
+
+  * upload to Debian
+  * add myself and Gauvain Pocentek to Uploaders:, update Danieles address
+  * lintian fixes
+  * data must not be in library packages due to library packages
+    needing  to be parallel installable, move them into a libtextcat-data
+  * don't install libtextcat.la
+  * fix createfps description
+
+ -- Rene Engelhard <rene@debian.org>  Wed, 22 Aug 2007 17:19:43 +0200
+
+libtextcat (2.2-0ubuntu2) feisty; urgency=low
+
+  * Bump standards to 3.7.2
+  * Create createfp package which includes the executable
+  * Clean up debian/rules a bit
+  * Use dh_install to install the .h source file
+
+ -- Gauvain Pocentek <gauvainpocentek@ubuntu.com>  Fri, 20 Oct 2006 11:12:57 +0200
+
+libtextcat (2.2-0ubuntu1) UNRELEASED; urgency=low
+
+  * Initial release 
+
+ -- Daniele Favara <danjele@gmail.com>  Sun,  5 Mar 2006 18:32:09 +0100
+

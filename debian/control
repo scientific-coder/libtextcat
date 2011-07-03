@@ -1,0 +1,57 @@
+Source: libtextcat
+Section: libs
+Priority: optional
+Maintainer: Rene Engelhard <rene@debian.org>
+Build-Depends: cdbs, debhelper (>= 5.0.0), autotools-dev, libtool, automake1.7, autoconf
+Standards-Version: 3.7.2
+Homepage: http://software.wise-guys.nl/libtextcat/
+
+Package: libtextcat0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtextcat-data (= ${source:Version})
+Description: Language detection library
+ Libtextcat is a library with functions that implement the classification
+ technic described in Cavnar & Trenkle, "N-Gram-Based Text Categorization".
+ It was primarily developed for language guessing, a task on which it is known
+ to perform with near-perfect accuracy.
+
+Package: libtextcat-dev
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtextcat0 (= ${binary:Version})
+Description: Language detection library - development files
+ Libtextcat is a library with functions that implement the classification
+ technic described in Cavnar & Trenkle, "N-Gram-Based Text Categorization".
+ It was primarily developed for language guessing, a task on which it is known
+ to perform with near-perfect accuracy.
+ .
+ This package provides the files needed for building packages which use
+ libtextcat.
+
+Package: libtextcat-data
+Section: text
+Architecture: all
+Replaces: libtextcat0 (<< 2.2-1), libtextcat-data-utf8
+Conflicts: libtextcat-data-utf8
+Provides: libtextcat-data-utf8
+Depends: ${misc:Depends}
+Description: Language detection library - data files
+ Libtextcat is a library with functions that implement the classification
+ technic described in Cavnar & Trenkle, "N-Gram-Based Text Categorization".
+ It was primarily developed for language guessing, a task on which it is known
+ to perform with near-perfect accuracy.
+ .
+ This package provides the libtextcat data files.
+
+Package: createfp
+Section: utils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Language detection library - fingerprint generation utility
+ Libtextcat is a library with functions that implement the classification
+ technic described in Cavnar & Trenkle, "N-Gram-Based Text Categorization".
+ It was primarily developed for language guessing, a task on which it is known
+ to perform with near-perfect accuracy.
+ .
+ This package contains 'createfp' for generating fingerprints

@@ -1,0 +1,3 @@
+langclass/ShortTexts/*.txt /usr/share/libtextcat/ShortTexts/
+langclass/conf.txt /usr/share/libtextcat
+debian/fpdb.conf /usr/share/libtextcat/LM

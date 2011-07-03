@@ -1,0 +1,6 @@
+libtool_1.4.diff
+fix-catalan-shorttexts.diff
+libtextcat-2.2-exportapi.patch
+libtextcat-2.2-OOo.patch
+autogen.diff
+debian-changes-2.2-8
