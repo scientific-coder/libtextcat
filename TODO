@@ -1,10 +1,9 @@
+New TOD (scientific-coder) :
 
-TODO
-
-- Better Makefile
-- Improve error handling and reporting.
-- Split off table and heap routines to separate source files.
-- Speed optimizations. Some speed might be gained by comparing
-  the unknown fingerprint to all known fingerprints at once.
-- More docs, more comments.
-- Make a language model for Klingon.
+1°) Make tests to avoid regressions
+2°) Reimplement only utf-8, 5grams on GNU/linux
+2.1) store 3 codepoints per 64 bits. (align ngrams on 128 bits boundaries for SIMD ? inquire about Boost.SIMD use for this).
+2.2) use tr1/hash_map
+2.3) LRU cache of languages to raise reshold as fast as possible
+3°) enhance API (default languages without reading text files)
+4°) extend & port as needed.
