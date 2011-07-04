@@ -11,20 +11,25 @@ noinst_HEADERS = \
 	common_impl.h wg_mempool.h
 
 libtextcat_includedir = $(includedir)/libtextcat
+
 libtextcat_include_HEADERS = \
 	common.h constants.h fingerprint.h textcat.h utf8misc.h
 
-lib_LTLIBRARIES =	libtextcat.la
+lib_LTLIBRARIES =	libtextcat.la libtextcat++.la
 libtextcat_la_SOURCES = \
 	common.c fingerprint.c textcat.c wg_mempool.c utf8misc.c
+
+libtextcat___includedir = $(includedir)/libtextcat
+libtextcat___include_HEADERS= textcat++.hxx
+libtextcat___la_SOURCES= textcat++.cxx
 
 bin_PROGRAMS =		createfp
 createfp_SOURCES =	createfp.c
 createfp_LDADD =	libtextcat.la
 
-noinst_PROGRAMS =	testtextcat my_tests
+noinst_PROGRAMS =	testtextcat my_createfp
 testtextcat_SOURCES =	testtextcat.c
 testtextcat_LDADD =	libtextcat.la
 
-my_tests_SOURCES =	my_tests.cxx
-my_tests_LDADD =	libtextcat.la
+my_createfp_SOURCES =	my_createfp.cxx
+my_createfp_LDADD =	libtextcat++.la
