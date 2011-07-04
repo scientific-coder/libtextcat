@@ -22,6 +22,9 @@ bin_PROGRAMS =		createfp
 createfp_SOURCES =	createfp.c
 createfp_LDADD =	libtextcat.la
 
-noinst_PROGRAMS =	testtextcat
+noinst_PROGRAMS =	testtextcat my_tests
 testtextcat_SOURCES =	testtextcat.c
 testtextcat_LDADD =	libtextcat.la
+
+my_tests_SOURCES =	my_tests.cxx
+my_tests_LDADD =	libtextcat.la
