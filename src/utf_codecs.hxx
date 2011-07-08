@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <cstdlib>
 #include <cstdint>
+#include <array>
 #include <boost/type_traits/make_unsigned.hpp> 
 #include <boost/throw_exception.hpp>
 
@@ -69,7 +70,7 @@ template<typename In> char32_t from_utf8(In& b, In e) {
         }
       }
     }
-  } catch (std::out_of_range const&e) { b= backup; throw; }
+  } catch (std::out_of_range const& except) { b= backup; throw; }
   return res;
 }
 

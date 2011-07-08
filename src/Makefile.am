@@ -2,10 +2,11 @@ AUTOMAKE_OPTIONS = 1.4 foreign
 
 WARNS =		-W -Wall -Wshadow -Wpointer-arith 
 IFLAGS =
-FLAGS =		-g -O3 -funroll-loops -D_THREAD_SAFE -D_GNU_SOURCE
+FLAGS =		-g -O3 -funroll-loops -D_THREAD_SAFE -D_GNU_SOURCE -march=native
 VERBOSE	=	-DVERBOSE
 AM_CFLAGS =	$(IFLAGS) $(VERBOSE) $(WARNS) $(FLAGS)
-AM_LDFLAGS =	-g
+AM_CXXFLAGS =	$(IFLAGS) $(VERBOSE) $(WARNS) $(FLAGS) -std=c++0x
+AM_LDFLAGS =	-g -licuuc
 
 noinst_HEADERS = \
 	common_impl.h wg_mempool.h
