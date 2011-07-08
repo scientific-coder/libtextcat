@@ -118,7 +118,6 @@ namespace textcat {
   to_vector(typename counts<N>::map_type const& c, std::size_t maxngrams){
     typedef typename counts<N>::value_type value_type;
     typename counts<N>::fingerprint_type result(c.begin(), c.end());
-    typedef typename value_type::second_type size_type;
     if(maxngrams > result.size()) { maxngrams= result.size(); }
     std::partial_sort(result.begin(), result.begin()+maxngrams, result.end()
                       ,[](value_type const& v1, value_type const& v2){ return v1.second > v2.second; });
@@ -139,7 +138,9 @@ namespace textcat {
 
 // Input Stream data is supposed to be already sorted
 // imbue maxngrams and >> ?
-  template<unsigned char N, typename Is>   typename counts<N>::fingerprint_type read(Is& is, std::size_t maxngrams= std::numeric_limits<std::size_t>::max()) {
+  template<unsigned char N, typename Is> 
+  typename counts<N>::fingerprint_type 
+  read(Is& is, std::size_t maxngrams= std::numeric_limits<std::size_t>::max()) {
     typename counts<N>::fingerprint_type result;
     std::string tmp;
     std::size_t count;
@@ -154,28 +155,24 @@ namespace textcat {
     return result;
   }
 
-  template<unsigned char N, typename Os>   Os& operator<<(Os& os, typename counts<N>::fingerprint_type fp) {
+  template<unsigned char N, typename Os>
+  Os& operator<<(Os& os, typename counts<N>::fingerprint_type fp) {
     std::for_each(fp.begin(), fp.end()
                   , [&os](typename counts<N>::value_type const& v)
                   {os << v.first << '\t' << v.second << '\n';});
-    // for(typename counts<N>::fingerprint_type::const_iterator it(fp.begin()); it != fp.end(); ++it){
-    //   os<<(*it).first << '\t' << (*it).second << '\n';
-    // }
     return os;
   }
 
   struct scorer {
     scorer(float ratio=1.03, std::size_t oop= 400
-           , std::size_t max_s= std::numeric_limits<std::size_t>::max()
-           ): 
+           , std::size_t max_s= std::numeric_limits<std::size_t>::max()): 
       out_of_place(oop), max_score(max_s)
       , cutoff(max_s), treshold_ratio(ratio){}
     template<unsigned char N>
     std::size_t operator()(typename counts<N>::fingerprint_type const& f1
                            , typename counts<N>::fingerprint_type const& f2){
-      typedef typename counts<N>::fingerprint_type fp_type;
       std::size_t result(0);
-      for(typename fp_type::const_iterator it1(f1.begin()), it2(f2.begin())
+      for(auto it1(f1.begin()), it2(f2.begin())
             ; (it1 != f1.end()) && (it2 != f2.end()) && (result != max_score)
             ; ) {
         if( (*it1).first < (*it2).first) { ++it1; }
@@ -187,7 +184,7 @@ namespace textcat {
           ++it2;
         }
       }
-      cutoff= std::min(cutoff, static_cast<std::size_t>(result* treshold_ratio));// check no overflow
+      cutoff= std::min(cutoff, static_cast<std::size_t>(result * treshold_ratio));// check no overflow
       return result;
     }
     std::size_t const out_of_place, max_score;
@@ -218,7 +215,6 @@ namespace textcat {
       //:TODO: LRU caching of detected languages
       typename counts<N>::fingerprint_type fp(to_vector<N>(make_counts<N>(b, e, max_read), max_read));
       count_to_rank(fp.begin(), fp.end());
-      typename counts<N>::fingerprint_type const& cfp(fp);
       std::vector<std::size_t> scores(languages.size()), idx(languages.size());
       scorer s(treshold_ratio);
       std::transform(languages.begin(), languages.end(), scores.begin()
