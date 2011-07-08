@@ -28,7 +28,8 @@ ony one needed per app, maybe no copyes at all
 namespace textcat {
 
   char32_t constexpr placeholder_char= U'_'; 
-  char32_t to_normal(char32_t c) { return u_isalpha(c) ? u_toupper(c) : placeholder_char; } //u_isUAlphabetic
+  //  char32_t to_normal(char32_t c) { return u_isalpha(c) ? u_toupper(c) : placeholder_char; } //u_isUAlphabetic
+  char32_t to_normal(char32_t c) { return (u_isspace(c) || u_isdigit(c)) ?  placeholder_char : c; } //u_isUAlphabetic
 
   // storing ngrams for 1 <= n <= N  
   template<unsigned char N>
