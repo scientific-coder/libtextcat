@@ -1,3 +1,0 @@
-utf8misc.lo: utf8misc.c utf8misc.h
-
-utf8misc.h:
