@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+iculib=@ICU_LIBS@
+
+Name: libtextcat
+Description: Faster unicode-focused C++ reimplementation of libtextcat
+Version: @PACKAGE_VERSION@
+Libs: -L${libdir} -ltextcat -ltextcat++ ${iculib}
+Cflags: -I${includedir}

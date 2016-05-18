@@ -4,6 +4,7 @@
 *~
 .deps
 compile
+libtextcat.pc
 Makefile
 Makefile.in
 aclocal.m4
@@ -24,4 +25,5 @@ src/createfp
 src/libtextcat++.la
 src/libtextcat.la
 src/my_createfp
+src/stamp-h1
 src/testtextcat
