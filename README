@@ -50,6 +50,13 @@
        make
        make install
 
+     or if you install from Git:
+
+       autoreconf -vi
+       ./configure
+       make
+       make install
+
      This will install the library in /usr/local/lib/ and the createfp
      binary in /usr/local/bin.
      

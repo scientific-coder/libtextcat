@@ -32,4 +32,12 @@ AC_CHECK_FUNCS([gettimeofday memset strchr strdup strpbrk])
 
 dnl Checks for libraries
 
+dnl Checks for custom locations of ICU library
+PKG_CHECK_MODULES([ICU], [icu-uc])
+AC_SUBST([ICU_LIBS])
+AC_SUBST([ICU_CFLAGS])
+
+dnl Creates the pkg-config configuration file
+AC_CONFIG_FILES([libtextcat.pc:libtextcat.pc.in])
+
 AC_OUTPUT(Makefile src/Makefile)
